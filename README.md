@@ -1,7 +1,10 @@
 ### 项目基本脚手架
 
 commit前自动进行lint(prittier)
+amfe-flexible + pxtorem 移动端适配 + polyfill
 
+### 备注
+.env 中配置关闭sourcemap & publicPath
 
 ### GIT Commit Message规范
 提交格式：`type(scope): message`
