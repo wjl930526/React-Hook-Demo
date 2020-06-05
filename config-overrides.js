@@ -1,9 +1,16 @@
-const { override, addPostcssPlugins, overrideDevServer, fix } = require('customize-cra');
+const { override, addPostcssPlugins, overrideDevServer } = require('customize-cra');
 
-// const addProxy = proxy => config => {
-//   config.proxy = proxy
-//   return config
-// }
+const addProxy = () => (configFunction) => {
+  configFunction.proxy = {
+      '/mobcommon/': {
+          target: 'http://premob.tutorabc.com.cn',
+          changeOrigin: true,
+          // pathRewrite: { '^/mobcommon/': '/mobcommon/' },
+      },
+  };
+
+  return configFunction;
+}
 
 module.exports = {
   webpack: override(
@@ -30,15 +37,7 @@ module.exports = {
     )
   ),
 
-  // devServer: overrideDevServer(addProxy({
-  //   '/openapi': {
-  //     target: 'http://openapi-mls.tutorabc.com.cn',
-  //     changeOrigin: true,
-  //     ws: false,
-  //     pathRewrite: {
-  //       '^/openapi': '',
-  //     },
-  //     secure: false,
-  //   }
-  // })),
+  // devServer: overrideDevServer(
+  //   addProxy()
+  // )
 };

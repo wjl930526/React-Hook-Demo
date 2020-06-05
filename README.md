@@ -1,3 +1,8 @@
+### 项目基本脚手架
+
+commit前自动进行lint(prittier)
+
+
 ### GIT Commit Message规范
 提交格式：`type(scope): message`
 

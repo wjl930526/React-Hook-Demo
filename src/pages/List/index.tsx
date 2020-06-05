@@ -4,7 +4,7 @@ import "./index.scss";
 const List: React.FC = () => {
   const [name, setName] = useState("");
   return (
-    <div className="home">
+    <div className="list">
       <p>i am list</p>
     </div>
   );
