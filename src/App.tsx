@@ -31,18 +31,20 @@ function App() {
   }, []);
   return (
     <div className="App">
-      <UserInfo.Provider value={{ userInfo, setUserInfo }}>
-        <HashRouter basename={process.env.PUBLIC_URL}>
-          <Switch>
-            <Route path="/" exact={true} component={Home} />
-            <Route path="/list" exact={true} component={List} />
+      {userInfo.clientSn && (
+        <UserInfo.Provider value={{ userInfo, setUserInfo }}>
+          <HashRouter basename={process.env.PUBLIC_URL}>
+            <Switch>
+              <Route path="/" exact={true} component={Home} />
+              <Route path="/list" exact={true} component={List} />
 
-            {/* <Route path="*">
+              {/* <Route path="*">
               <NotFound />
             </Route> */}
-          </Switch>
-        </HashRouter>
-      </UserInfo.Provider>
+            </Switch>
+          </HashRouter>
+        </UserInfo.Provider>
+      )}
     </div>
   );
 }
